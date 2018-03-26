@@ -10,4 +10,15 @@ apt-get clean -y
 echo "add 'souce generate_container_user' to .bashrc"
 
 # have to be added to hold all env vars correctly
-echo 'source $STARTUPDIR/generate_container_user' >> $HOME/.bashrc
+echo -e 'source $STARTUPDIR/generate_container_user\n' >> $HOME/.bashrc
+
+echo "add loading modules to .bashrc"
+
+echo '# loading modules
+if [ -f /etc/profile.d/modules.sh ]; then
+  . /etc/profile.d/modules.sh
+fi
+
+# set the HOME env variable to the home of the user 
+export HOME=$CINECA_HOME
+cd $HOME' >> $HOME/.bashrc

@@ -9,3 +9,4 @@ do
     find "$var"/ -name '*.desktop' -exec chmod -v a+x {} +
     chgrp -R 0 "$var" && chmod -R -v a+rw "$var" && find "$var" -type d -exec chmod -v a+x {} +
 done
+
